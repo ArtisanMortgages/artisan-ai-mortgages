@@ -6,7 +6,7 @@ Allow: /
 Sitemap: https://artisanmortgages.ai/sitemap.xml
 `;
 
-export const Route = createFileRoute("/robots/txt")({
+export const Route = createFileRoute("/robots.txt")({
   server: {
     handlers: {
       GET: () =>
