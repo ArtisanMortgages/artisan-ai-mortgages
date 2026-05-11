@@ -4,14 +4,34 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
+import { seo, jsonLdScript, breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
+
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
-  head: () => ({
-    meta: [
-      { title: "Contact Moses Lam — Artisan Mortgages AI" },
-      { name: "description", content: "Speak with Moses Lam directly. Edmonton, AB. Call 780 952 4566 or email moses@artisanmortgages.ca." },
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: "Contact Moses Lam — Artisan Mortgages AI Edmonton",
+      description:
+        "Speak with Moses Lam directly. Edmonton, AB office at 2207 90B Street SW. Call +1 780 952 4566 or email moses@artisanmortgages.ca.",
+      path: "/contact",
+      image: "/og-contact.jpg",
+      keywords: ["contact Edmonton mortgage broker", "Moses Lam contact", "Artisan Mortgages AI office"],
+    });
+    const contactJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      url: `${SITE_URL}/contact`,
+      name: "Contact Artisan Mortgages AI",
+      mainEntity: { "@id": `${SITE_URL}/#organization` },
+    };
+    return {
+      ...s,
+      scripts: [
+        jsonLdScript(contactJsonLd),
+        jsonLdScript(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])),
+      ],
+    };
+  },
 });
 
 const items = [
