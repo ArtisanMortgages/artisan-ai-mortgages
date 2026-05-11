@@ -19,6 +19,8 @@ export function Nav() {
 
   return (
     <header
+      role="banner"
+      aria-label="Primary"
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled ? "py-3" : "py-5"
       }`}
@@ -35,7 +37,7 @@ export function Nav() {
             Artisan <span className="text-gold-gradient font-semibold">Mortgages</span>
           </span>
         </Link>
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
           {links.map((l) => (
             <Link
               key={l.to}
