@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, Sparkles, Home, RefreshCw, TrendingUp, Building2 } from "lucide-react";
+import { ArrowRight, Sparkles, Home, RefreshCw, TrendingUp, Building2, FileSignature, Zap, FolderLock } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import heroMansion from "@/assets/hero-mansion.jpg";
@@ -255,6 +255,90 @@ function LendersMarquee() {
   );
 }
 
+function AICapabilities() {
+  const pillars = [
+    {
+      icon: FileSignature,
+      kicker: "Intelligent Intake",
+      title: "Applications, taken with precision.",
+      body: "Every client conversation is captured by our proprietary AI concierge — listening, structuring, and translating your story into a lender-ready application in real time. No clipboards. No repeat questions. Just a quiet, white-glove intake that feels more like a private consultation than paperwork.",
+    },
+    {
+      icon: Zap,
+      kicker: "Instant Form Fluency",
+      title: "Forms, completed at the speed of thought.",
+      body: "What once consumed entire afternoons now resolves in moments. Our AI auto-populates every disclosure, declaration, and lender submission with surgical accuracy — pulling from verified data, cross-checking compliance, and presenting documents polished enough for a private bank's underwriting desk.",
+    },
+    {
+      icon: FolderLock,
+      kicker: "Curated Documentation",
+      title: "Files, organized like a Swiss vault.",
+      body: "Pay stubs, T4s, NOAs, MLS listings, appraisals — all classified, labelled, encrypted, and arranged by our AI the moment they arrive. Underwriters open a flawless package on the first try. Approvals accelerate. Conditions vanish. Volume becomes effortless.",
+    },
+  ];
+  return (
+    <section className="relative py-32 px-6 overflow-hidden">
+      <div className="absolute inset-0 -z-10 opacity-20">
+        <img src={aiNetwork} alt="" className="h-full w-full object-cover" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
+      </div>
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-3xl mb-20">
+          <div className="text-xs uppercase tracking-[0.25em] text-gold-gradient mb-5">The Artisan AI Engine</div>
+          <h2 className="font-display text-5xl md:text-7xl leading-[1.0]">
+            How we move <span className="italic text-gold-gradient">extraordinary</span> volume, year after year.
+          </h2>
+          <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
+            Most brokerages scale by hiring. We scaled by engineering. Our proprietary AI stack handles the unseen craft —
+            intake, underwriting prep, and documentation — so Moses spends his hours where they matter most: with you, structuring
+            the deal of a lifetime.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-6">
+          {pillars.map((p, i) => (
+            <motion.div
+              key={p.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ delay: i * 0.12, duration: 0.8 }}
+              className="relative p-10 rounded-3xl glass-strong hover:bg-white/[0.06] transition-all duration-500"
+            >
+              <div className="absolute top-8 right-8 font-display text-5xl text-gold-gradient/40">0{i + 1}</div>
+              <div className="h-14 w-14 rounded-2xl flex items-center justify-center mb-8" style={{ background: "var(--gradient-gold)" }}>
+                <p.icon className="h-6 w-6 text-primary-foreground" />
+              </div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-gold-gradient mb-3">{p.kicker}</div>
+              <h3 className="font-display text-2xl md:text-3xl leading-tight mb-5">{p.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.body}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-16 grid sm:grid-cols-3 gap-px rounded-3xl overflow-hidden glass-strong"
+        >
+          {[
+            { v: "8 min", l: "Avg. application intake" },
+            { v: "94%", l: "First-pass underwriting approval" },
+            { v: "24/7", l: "AI concierge availability" },
+          ].map((s) => (
+            <div key={s.l} className="p-8 text-center bg-card/30">
+              <div className="font-display text-4xl text-gold-gradient">{s.v}</div>
+              <div className="mt-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{s.l}</div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function CTA() {
   return (
     <section className="relative py-32 px-6">
@@ -305,6 +389,7 @@ function Index() {
         reverse
       />
       <Services />
+      <AICapabilities />
       <FeatureRow
         eyebrow="Edmonton Born"
         title={<>A view from the <span className="italic text-gold-gradient">top floor</span>.</>}
