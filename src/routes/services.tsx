@@ -4,14 +4,54 @@ import { Home, RefreshCw, TrendingUp, Building2, Briefcase, Shield, ArrowRight }
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
+import { seo, jsonLdScript, breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
+
 export const Route = createFileRoute("/services")({
   component: ServicesPage,
-  head: () => ({
-    meta: [
-      { title: "Services — Artisan Mortgages AI" },
-      { name: "description", content: "First-time buyers, renewals, refinance, and investment mortgages. Boutique mortgage services in Edmonton, AB." },
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: "Mortgage Services in Edmonton — Artisan Mortgages AI",
+      description:
+        "First-time buyers, renewals, refinance, investment properties, self-employed and private lending. AI-powered mortgage solutions across 150+ Canadian lenders.",
+      path: "/services",
+      image: "/og-services.jpg",
+      keywords: [
+        "mortgage services Edmonton",
+        "first time home buyer mortgage",
+        "mortgage renewal Alberta",
+        "mortgage refinance Edmonton",
+        "investment property mortgage",
+        "self employed mortgage Canada",
+        "private mortgage lender",
+      ],
+    });
+    const itemListJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Mortgage Services",
+      itemListElement: [
+        "First-Time Buyers",
+        "Mortgage Renewals",
+        "Refinance & Equity",
+        "Investment Properties",
+        "Self-Employed & BFS",
+        "Private & Alternative Lending",
+      ].map((name, i) => ({
+        "@type": "Service",
+        position: i + 1,
+        name,
+        provider: { "@id": `${SITE_URL}/#organization` },
+        areaServed: { "@type": "AdministrativeArea", name: "Alberta, Canada" },
+      })),
+    };
+    return {
+      ...s,
+      scripts: [
+        jsonLdScript(itemListJsonLd),
+        jsonLdScript(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }])),
+      ],
+    };
+  },
 });
 
 const services = [

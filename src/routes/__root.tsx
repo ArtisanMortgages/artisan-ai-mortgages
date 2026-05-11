@@ -71,18 +71,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Artisan Mortgages AI — Edmonton's AI-Powered Mortgage Brokerage" },
-      { name: "description", content: "Canada's first AI-powered mortgage brokerage. Boutique service in Edmonton, AB led by Moses Lam. Better rates, faster approvals." },
-      { name: "author", content: "Artisan Mortgages AI" },
-      { property: "og:title", content: "Artisan Mortgages AI — Edmonton" },
-      { property: "og:description", content: "Canada's first AI-powered mortgage brokerage. Boutique service led by Moses Lam." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { name: "theme-color", content: "#0a0807" },
+      { name: "format-detection", content: "telephone=yes" },
+      { httpEquiv: "Content-Language", content: "en-CA" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "apple-touch-icon", href: "/og-image.jpg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

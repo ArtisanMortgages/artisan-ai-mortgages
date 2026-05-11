@@ -5,14 +5,28 @@ import { Footer } from "@/components/Footer";
 import moses from "@/assets/moses-portrait.jpg";
 import aiNetwork from "@/assets/ai-network.jpg";
 
+import { seo, jsonLdScript, personJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+
 export const Route = createFileRoute("/about")({
   component: AboutPage,
-  head: () => ({
-    meta: [
-      { title: "About Moses Lam — Artisan Mortgages AI" },
-      { name: "description", content: "Meet Moses Lam, founder of Artisan Mortgages AI — Canada's first AI-powered mortgage brokerage in Edmonton, AB." },
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: "About Moses Lam — Artisan Mortgages AI Edmonton",
+      description:
+        "Meet Moses Lam, founder of Artisan Mortgages AI. 17+ years of experience and over $100M in funded mortgages — Canada's first AI-powered mortgage brokerage.",
+      path: "/about",
+      image: "/og-about.jpg",
+      type: "profile",
+      keywords: ["Moses Lam mortgage broker", "Artisan Mortgages AI", "Edmonton mortgage broker", "AI mortgage brokerage Canada"],
+    });
+    return {
+      ...s,
+      scripts: [
+        jsonLdScript(personJsonLd),
+        jsonLdScript(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])),
+      ],
+    };
+  },
 });
 
 function AboutPage() {

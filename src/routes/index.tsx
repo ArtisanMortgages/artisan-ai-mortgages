@@ -9,14 +9,32 @@ import luxuryKitchen from "@/assets/luxury-kitchen.jpg";
 import aiNetwork from "@/assets/ai-network.jpg";
 import luxuryLiving from "@/assets/luxury-living.jpg";
 
+import { seo, jsonLdScript, localBusinessJsonLd, websiteJsonLd } from "@/lib/seo";
+
 export const Route = createFileRoute("/")({
   component: Index,
-  head: () => ({
-    meta: [
-      { title: "Artisan Mortgages AI — Edmonton's AI-Powered Mortgage Brokerage" },
-      { name: "description", content: "Canada's first AI-powered mortgage brokerage. Boutique mortgage service in Edmonton led by Moses Lam." },
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: "Artisan Mortgages AI — Edmonton's AI-Powered Mortgage Brokerage",
+      description:
+        "Canada's first AI-powered mortgage brokerage. Boutique service in Edmonton, AB led by Moses Lam. Better rates, faster approvals across 150+ lenders.",
+      path: "/",
+      image: "/og-image.jpg",
+      keywords: [
+        "Edmonton mortgage broker",
+        "AI mortgage brokerage",
+        "Moses Lam",
+        "Artisan Mortgages",
+        "Alberta mortgage rates",
+        "first time home buyer Edmonton",
+        "mortgage refinance Edmonton",
+      ],
+    });
+    return {
+      ...s,
+      scripts: [jsonLdScript(localBusinessJsonLd), jsonLdScript(websiteJsonLd)],
+    };
+  },
 });
 
 function Hero() {
