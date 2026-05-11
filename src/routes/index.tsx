@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, Sparkles, Home, RefreshCw, TrendingUp, Building2 } from "lucide-react";
+import { ArrowRight, Sparkles, Home, RefreshCw, TrendingUp, Building2, FileSignature, Zap, FolderLock } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import heroMansion from "@/assets/hero-mansion.jpg";
