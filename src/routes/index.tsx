@@ -389,6 +389,7 @@ function Index() {
         reverse
       />
       <Services />
+      <AICapabilities />
       <FeatureRow
         eyebrow="Edmonton Born"
         title={<>A view from the <span className="italic text-gold-gradient">top floor</span>.</>}
