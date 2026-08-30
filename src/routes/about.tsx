@@ -4,8 +4,41 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import moses from "@/assets/moses-portrait.jpg";
 import aiNetwork from "@/assets/ai-network.jpg";
+import agentMoses from "@/assets/agent-moses.jpg";
+import agentLukas from "@/assets/agent-lukas.jpg";
+import agentAsh from "@/assets/agent-ash.jpg";
+import agentAshley from "@/assets/agent-ashley.jpg";
+import agentBea from "@/assets/agent-bea.png";
+import agentElissa from "@/assets/agent-elissa.png";
+import agentJadia from "@/assets/agent-jadia.jpg";
+import agentJc from "@/assets/agent-jc.png";
+import agentJennifer from "@/assets/agent-jennifer.jpg";
 
 import { seo, jsonLdScript, personJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+
+const agentImages = {
+  "agent-moses.jpg": agentMoses,
+  "agent-lukas.jpg": agentLukas,
+  "agent-ash.jpg": agentAsh,
+  "agent-ashley.jpg": agentAshley,
+  "agent-bea.png": agentBea,
+  "agent-elissa.png": agentElissa,
+  "agent-jadia.jpg": agentJadia,
+  "agent-jc.png": agentJc,
+  "agent-jennifer.jpg": agentJennifer,
+};
+
+const agents = [
+  { name: "Moses Lam", role: "Brokerage Owner & Mortgage Broker", badge: "21+ years · Speaks Cantonese", img: "agent-moses.jpg", desc: "With over 19 years of experience and great relationships with top lenders, Moses leads Artisan with integrity, transparency, and a client-first mentality on every file." },
+  { name: "Lukas Zapata", role: "Senior Mortgage Agent — Residential, Commercial & Private", badge: "$80M+ funded · Speaks Spanish", img: "agent-lukas.jpg", desc: "A former skilled carpenter who now applies the same craftsmanship to mortgages. Four years in, with over $80M funded." },
+  { name: "Ash Dumlao", role: "Mortgage Agent", badge: "Speaks Tagalog", img: "agent-ash.jpg", desc: "Originally from the Philippines and fluent in Tagalog. A background in life insurance brings a deep sense of trust, protection, and clear communication to every client." },
+  { name: "Ashley Hoover", role: "Mortgage Agent", badge: "Precision & transparency", img: "agent-ashley.jpg", desc: "A craftsman's precision with an approachable touch. Ashley handcrafts personalized mortgage solutions where transparency is the foundation of every relationship." },
+  { name: "Ngoc Bich (Bea) Nguyen, CPA, CMA", role: "Mortgage Agent", badge: "17+ years finance leadership", img: "agent-bea.png", desc: "With 17+ years as a CFO and senior finance leader, Bea brings a strategic, numbers-driven perspective to mortgage financing." },
+  { name: "Elissa McQueen", role: "Mortgage Agent", badge: "Donald School of Business grad", img: "agent-elissa.png", desc: "A Donald School of Business graduate with over a decade scaling an international brand and boutique. Elissa delivers a refined, white-glove mortgage process." },
+  { name: "Jadia Wilson", role: "Mortgage Agent", badge: "20 years of experience", img: "agent-jadia.jpg", desc: "Two decades of refining her craft. Jadia transforms complex mortgage processes into clear, confident journeys — with patience, precision, and authentic care." },
+  { name: "JC Jacobs", role: "Mortgage Agent", badge: "Data-driven strategist", img: "agent-jc.png", desc: "A Filipino-Canadian analyst by profession and mortgage strategist by passion. Drawing on a background in business analytics, JC takes a data-driven, customer-centric approach." },
+  { name: "Jennifer Abbas", role: "Mortgage Agent", badge: "Years of client guidance", img: "agent-jennifer.jpg", desc: "Years of experience guiding clients through purchases, renewals, and refinances. Jennifer blends strategic advice with transparent communication on every file." },
+];
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -97,6 +130,58 @@ function AboutPage() {
               </Link>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ---- TEAM SECTION ---- */}
+      <section className="px-6 py-32 bg-black/20">
+        <div className="mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <div className="text-xs uppercase tracking-[0.25em] text-gold-gradient mb-5">Our Team</div>
+            <h2 className="font-display text-4xl md:text-6xl leading-tight">
+              Meet the <span className="italic text-gold-gradient">artisans</span>.
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              A team of seasoned brokers — multilingual, deeply experienced, and personally invested in every file we touch.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {agents.map((agent) => (
+              <motion.div
+                key={agent.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="group relative rounded-2xl overflow-hidden glass-strong"
+              >
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={agentImages[agent.img]}
+                    alt={agent.name}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="text-xs uppercase tracking-[0.15em] text-gold-gradient mb-1">{agent.role}</div>
+                  <h3 className="font-display text-xl mb-1">{agent.name}</h3>
+                  <div className="text-xs text-muted-foreground mb-2">{agent.badge}</div>
+                  <p className="text-sm text-muted-foreground/80 line-clamp-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {agent.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
