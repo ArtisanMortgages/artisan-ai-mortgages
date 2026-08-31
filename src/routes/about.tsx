@@ -36,7 +36,7 @@ const agents = [
   { name: "Ngoc Bich (Bea) Nguyen, CPA, CMA", role: "Mortgage Agent", badge: "17+ years finance leadership", img: "agent-bea.png", desc: "With 17+ years as a CFO and senior finance leader, Bea brings a strategic, numbers-driven perspective to mortgage financing." },
   { name: "Elissa McQueen", role: "Mortgage Agent", badge: "Donald School of Business grad", img: "agent-elissa.png", desc: "A Donald School of Business graduate with over a decade scaling an international brand and boutique. Elissa delivers a refined, white-glove mortgage process." },
   { name: "Jadia Wilson", role: "Mortgage Agent", badge: "20 years of experience", img: "agent-jadia.jpg", desc: "Two decades of refining her craft. Jadia transforms complex mortgage processes into clear, confident journeys — with patience, precision, and authentic care." },
-  { name: "JC Jacobs", role: "Mortgage Agent", badge: "Data-driven strategist", img: "agent-jc.png", desc: "A Filipino-Canadian analyst by profession and mortgage strategist by passion. Drawing on a background in business analytics, JC takes a data-driven, customer-centric approach." },
+  { name: "JC Jacob", role: "Mortgage Agent", badge: "Data-driven strategist", img: "agent-jc.png", desc: "A Filipino-Canadian analyst by profession and mortgage strategist by passion. Drawing on a background in business analytics, JC takes a data-driven, customer-centric approach." },
   { name: "Jennifer Abbas", role: "Mortgage Agent", badge: "Years of client guidance", img: "agent-jennifer.jpg", desc: "Years of experience guiding clients through purchases, renewals, and refinances. Jennifer blends strategic advice with transparent communication on every file." },
 ];
 
