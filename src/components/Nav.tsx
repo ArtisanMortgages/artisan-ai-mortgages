@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import logo from "@/assets/logo.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -32,7 +33,7 @@ export function Nav() {
         style={scrolled ? { maxWidth: "1100px" } : {}}
       >
         <Link to="/" className="flex items-center gap-2 group">
-          <span className="h-7 w-7 rounded-full bg-[var(--gradient-gold)] glow-gold" style={{ background: "var(--gradient-gold)" }} />
+          <img src={logo} alt="Artisan Mortgages" className="h-7 w-7 rounded-full object-cover" />
           <span className="font-display text-lg tracking-wide">
             Artisan <span className="text-gold-gradient font-semibold">Mortgages</span>
           </span>

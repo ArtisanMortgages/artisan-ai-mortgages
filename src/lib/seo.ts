@@ -56,8 +56,8 @@ export const localBusinessJsonLd = {
   name: SITE_NAME,
   alternateName: "Artisan Mortgages",
   url: SITE_URL,
-  logo: `${SITE_URL}/og-image.jpg`,
-  image: `${SITE_URL}/og-image.jpg`,
+  logo: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/og-image.jpg`,
   description:
     "Canada's first AI-powered mortgage brokerage. Boutique mortgage services in Edmonton, AB led by Moses Lam.",
   telephone: "+1-780-952-4566",
